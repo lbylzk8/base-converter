@@ -1,0 +1,9 @@
+**/.gitignore
+**/.vscodeignore
+**/*.map
+**/src/**
+**/node_modules/**
+**/.eslintrc.json
+**/vsc-extension-quickstart.md
+**/.history/**
+**/.vscode/**

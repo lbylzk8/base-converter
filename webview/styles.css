@@ -1,0 +1,278 @@
+:root {
+    --vscode-font-family: var(--vscode-font-family, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
+    --vscode-input-background: var(--vscode-input-background, #2d2d2d);
+    --vscode-input-foreground: var(--vscode-input-foreground, #cccccc);
+    --vscode-button-background: var(--vscode-button-background, #0e639c);
+    --vscode-button-foreground: var(--vscode-button-foreground, #ffffff);
+    --vscode-button-hoverBackground: var(--vscode-button-hoverBackground, #1177bb);
+    --vscode-foreground: var(--vscode-foreground, #cccccc);
+    --vscode-descriptionForeground: var(--vscode-descriptionForeground, #858585);
+    --vscode-errorForeground: var(--vscode-errorForeground, #f48771);
+    --vscode-successForeground: var(--vscode-successForeground, #89d185);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--vscode-font-family);
+    font-size: 13px;
+    color: var(--vscode-foreground);
+    background-color: transparent;
+    padding: 10px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+h2 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--vscode-foreground);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+label {
+    font-size: 12px;
+    color: var(--vscode-descriptionForeground);
+}
+
+input, select, textarea {
+    font-family: var(--vscode-font-family);
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid var(--vscode-input-background);
+    border-radius: 2px;
+    background-color: var(--vscode-input-background);
+    color: var(--vscode-input-foreground);
+    outline: none;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--vscode-button-background);
+}
+
+input::placeholder, textarea::placeholder {
+    color: var(--vscode-descriptionForeground);
+}
+
+.row {
+    display: flex;
+    gap: 8px;
+}
+
+.row > .input-group {
+    flex: 1;
+}
+
+button {
+    font-family: var(--vscode-font-family);
+    font-size: 13px;
+    padding: 8px 16px;
+    background-color: var(--vscode-button-background);
+    color: var(--vscode-button-foreground);
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: var(--vscode-button-hoverBackground);
+}
+
+.result-container {
+    margin-top: 8px;
+    padding: 10px;
+    background-color: var(--vscode-input-background);
+    border-radius: 2px;
+    min-height: 50px;
+}
+
+.result-label {
+    font-size: 12px;
+    color: var(--vscode-descriptionForeground);
+    margin-bottom: 4px;
+}
+
+.result-value, .calc-preview {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 12px;
+    word-break: break-all;
+    white-space: pre-wrap;
+}
+
+.result-value.error, .calc-preview.error {
+    color: var(--vscode-errorForeground);
+}
+
+.result-value.success, .calc-preview.success {
+    color: var(--vscode-successForeground);
+}
+
+.swap-btn {
+    align-self: flex-end;
+    padding: 6px 10px;
+    font-size: 16px;
+    min-width: 40px;
+}
+
+.info {
+    font-size: 11px;
+    color: var(--vscode-descriptionForeground);
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--vscode-input-background);
+}
+
+/* Calculator styles */
+.calc-container {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 2px solid var(--vscode-input-background);
+}
+
+.calc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.calc-header h2 {
+    margin-bottom: 0;
+}
+
+.lang-btn {
+    padding: 4px 12px;
+    font-size: 12px;
+    min-width: 60px;
+}
+
+.expression-input-container {
+    margin-bottom: 12px;
+}
+
+.expression-input {
+    width: 100%;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 13px;
+    padding: 8px;
+    border: 1px solid var(--vscode-input-background);
+    border-radius: 2px;
+    background-color: var(--vscode-input-background);
+    color: var(--vscode-input-foreground);
+    resize: vertical;
+    min-height: 60px;
+}
+
+.operator-help {
+    font-size: 11px;
+    color: var(--vscode-descriptionForeground);
+    margin-top: 4px;
+}
+
+.function-editor {
+    margin-top: 8px;
+    padding: 8px;
+    background-color: var(--vscode-input-background);
+    border-radius: 2px;
+    display: none;
+}
+
+.function-editor textarea {
+    width: 100%;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 12px;
+    padding: 6px;
+    border: none;
+    background: transparent;
+    color: var(--vscode-input-foreground);
+    resize: vertical;
+    min-height: 80px;
+}
+
+.function-toggle {
+    font-size: 12px;
+    cursor: pointer;
+    color: var(--vscode-button-background);
+    margin-bottom: 4px;
+    display: inline-block;
+}
+
+.function-toggle:hover {
+    text-decoration: underline;
+}
+
+/* Button pad styles */
+.button-pad {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.button-row {
+    display: flex;
+    gap: 4px;
+}
+
+.pad-btn {
+    flex: 1;
+    padding: 10px 8px;
+    font-size: 14px;
+    font-family: 'Consolas', 'Courier New', monospace;
+    background-color: var(--vscode-input-background);
+    color: var(--vscode-input-foreground);
+    border: 1px solid var(--vscode-input-background);
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.15s;
+    min-width: 36px;
+}
+
+.pad-btn:hover {
+    background-color: var(--vscode-button-background);
+    color: var(--vscode-button-foreground);
+    border-color: var(--vscode-button-background);
+}
+
+.pad-btn:active {
+    transform: scale(0.98);
+}
+
+.operator-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 8px;
+}
+
+.operator-input {
+    width: 100%;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 13px;
+    padding: 8px;
+    border: 1px solid var(--vscode-input-background);
+    border-radius: 2px;
+    background-color: var(--vscode-input-background);
+    color: var(--vscode-input-foreground);
+}
+
+.operator-input:focus {
+    border-color: var(--vscode-button-background);
+    outline: none;
+}

@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.vscode/
+.history/
+*.vsix
+*.log
+out/
+build/
+coverage/
+.nyc_output/
+test-output/
+.env
+.DS_Store
+Thumbs.db

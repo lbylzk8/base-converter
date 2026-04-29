@@ -1,0 +1,65 @@
+{
+  "name": "base-converter",
+  "displayName": "Base Converter",
+  "description": "Infinite precision floating point base converter sidebar",
+  "version": "1.0.0",
+  "publisher": "base-converter",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other",
+    "Education"
+  ],
+  "keywords": [
+    "base converter",
+    "number system",
+    "binary",
+    "octal",
+    "hexadecimal",
+    "calculator"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lbylzk8/base-converter.git"
+  },
+  "license": "MIT",
+  "activationEvents": [
+    "onView:baseConverterView"
+  ],
+  "main": "./dist/extension.js",
+  "icon": "images/icon-01.png",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "base-converter-container",
+          "title": "Base Converter",
+          "icon": "images/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "base-converter-container": [
+        {
+          "type": "webview",
+          "id": "baseConverterView",
+          "name": "Base Converter",
+          "icon": "images/icon.svg",
+          "contextualTitle": "Base Converter"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.74.0",
+    "typescript": "^5.0.0"
+  }
+}
